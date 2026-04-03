@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaibhav Home Stay | Saraikhet, Almora – Uttarakhand</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2d4a3e;
+    --moss: #4a7c59;
+    --sage: #8fbc8f;
+    --cream: #faf7f2;
+    --warm: #f5efe6;
+    --gold: #c9a84c;
+    --gold-light: #e8c96d;
+    --bark: #7a5c3e;
+    --text: #2a2a2a;
+    --text-muted: #6b6b6b;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 999;
+    padding: 18px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(45,74,62,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    transition: all 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--white); font-weight: 400; font-style: italic; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-book {
+    background: var(--gold);
+    color: var(--forest) !important;
+    padding: 9px 20px;
+    border-radius: 3px;
+    font-weight: 600 !important;
+  }
+  .nav-book:hover { background: var(--gold-light) !important; color: var(--forest) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh; min-height: 600px;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a3028 0%, #2d4a3e 40%, #3d6b50 70%, #1e3d2f 100%);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+  /* Mountain silhouette */
+  .hero-mountains {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 45%;
+  }
+  .hero-mountains svg { width: 100%; height: 100%; }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.05rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .hero-location {
+    color: var(--sage);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .hero-location::before, .hero-location::after {
+    content: ''; width: 40px; height: 1px; background: var(--sage); opacity: 0.5;
+  }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--forest);
+    padding: 14px 32px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.3s;
+    border: 2px solid var(--gold);
+  }
+  .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 14px 32px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    z-index: 2; text-align: center;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+  .hero-scroll span {
+    display: block; width: 1px; height: 50px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    margin: 0 auto;
+  }
+
+  /* ── BOOKING BAR ── */
+  .booking-bar {
+    background: var(--white);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+    padding: 28px 5%;
+    display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .booking-field { display: flex; flex-direction: column; gap: 6px; min-width: 160px; }
+  .booking-field label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .booking-field input, .booking-field select {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 11px 14px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .booking-field input:focus, .booking-field select:focus { border-color: var(--moss); }
+  .btn-check {
+    background: var(--forest);
+    color: var(--white);
+    border: none;
+    padding: 12px 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s;
+    height: 46px;
+  }
+  .btn-check:hover { background: var(--moss); }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 5%; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--moss);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--forest);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .section-title em { color: var(--gold); font-style: italic; }
+  .section-desc {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    line-height: 1.8;
+    max-width: 600px;
+  }
+
+  /* ── ABOUT ── */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .about-img-stack { position: relative; height: 520px; }
+  .about-img-main {
+    position: absolute; right: 0; top: 0;
+    width: 80%; height: 85%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(45,74,62,0.2);
+  }
+  .about-img-accent {
+    position: absolute; left: 0; bottom: 0;
+    width: 50%; height: 50%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: 6px solid var(--white);
+  }
+  .about-img-main img, .about-img-accent img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+  }
+  .about-img-main:hover img, .about-img-accent:hover img { transform: scale(1.05); }
+  .about-badge {
+    position: absolute; right: -10px; top: 50%;
+    transform: translateY(-50%);
+    background: var(--gold);
+    color: var(--forest);
+    padding: 20px 16px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+    z-index: 3;
+  }
+  .about-badge .num { font-size: 2rem; font-family: 'Playfair Display', serif; display: block; }
+  .about-badge .text { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px; margin-top: 36px;
+  }
+  .stat-box {
+    padding: 20px;
+    border: 1px solid rgba(45,74,62,0.12);
+    border-radius: 4px;
+    background: var(--cream);
+  }
+  .stat-box .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--forest);
+    font-weight: 700;
+  }
+  .stat-box .label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+  /* ── ROOMS ── */
+  .rooms { background: var(--cream); }
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    margin-top: 48px;
+    max-width: 1200px; margin: 48px auto 0;
+  }
+  .room-card {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .room-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(45,74,62,0.15); }
+  .room-img {
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+  }
+  .room-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+  .room-card:hover .room-img img { transform: scale(1.08); }
+  .room-tag {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--gold);
+    color: var(--forest);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+  .room-body { padding: 24px; }
+  .room-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--forest);
+    margin-bottom: 10px;
+  }
+  .room-body p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 18px; }
+  .room-amenities { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .amenity-chip {
+    background: var(--cream);
+    color: var(--forest);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(45,74,62,0.2);
+    font-weight: 500;
+  }
+  .room-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding-top: 16px;
+  }
+  .room-price .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--forest);
+    font-weight: 700;
+  }
+  .room-price .per { font-size: 0.8rem; color: var(--text-muted); }
+  .btn-book-room {
+    background: var(--forest);
+    color: var(--white);
+    text-decoration: none;
+    padding: 9px 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    transition: background 0.3s;
+  }
+  .btn-book-room:hover { background: var(--moss); }
+
+  /* ── AMENITIES ── */
+  .amenities { background: var(--forest); }
+  .amenities .section-label { color: var(--gold); }
+  .amenities .section-title { color: var(--white); }
+  .amenities .section-title em { color: var(--gold); }
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+    max-width: 1200px; margin: 48px auto 0;
+  }
+  .amenity-card {
+    padding: 30px 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+    transition: all 0.3s;
+  }
+  .amenity-card:hover {
+    background: rgba(201,168,76,0.12);
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-4px);
+  }
+  .amenity-icon { font-size: 2rem; margin-bottom: 14px; }
+  .amenity-card h4 {
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .amenity-card p { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+
+  /* ── GALLERY ── */
+  .gallery { background: var(--cream); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 240px);
+    gap: 12px;
+    margin-top: 48px;
+    max-width: 1200px; margin: 48px auto 0;
+  }
+  .gallery-item {
+    overflow: hidden; border-radius: 4px;
+    cursor: pointer;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .g1 { grid-column: span 5; grid-row: span 2; }
+  .g2 { grid-column: span 4; }
+  .g3 { grid-column: span 3; }
+  .g4 { grid-column: span 4; }
+  .g5 { grid-column: span 3; }
+
+  /* ── LOCATION ── */
+  .location { background: var(--white); }
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .map-frame {
+    border-radius: 6px;
+    overflow: hidden;
+    height: 420px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  }
+  .map-frame iframe { width: 100%; height: 100%; border: none; }
+  .location-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--forest);
+    margin-bottom: 20px;
+  }
+  .location-info p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .distance-list { list-style: none; }
+  .distance-list li {
+    display: flex; justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    font-size: 0.92rem;
+  }
+  .distance-list li span:first-child { color: var(--text); font-weight: 500; }
+  .distance-list li span:last-child { color: var(--moss); font-weight: 600; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--warm); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+    max-width: 1200px; margin: 48px auto 0;
+  }
+  .testi-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    position: relative;
+  }
+  .testi-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.3;
+    position: absolute; top: -10px; left: 20px;
+    line-height: 1;
+  }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; }
+  .testi-text { color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; margin-bottom: 20px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: var(--forest); font-size: 1.1rem;
+  }
+  .testi-name { font-weight: 600; color: var(--text); font-size: 0.92rem; }
+  .testi-date { font-size: 0.78rem; color: var(--text-muted); }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--cream); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--forest);
+    margin-bottom: 24px;
+  }
+  .contact-detail {
+    display: flex; gap: 16px; align-items: flex-start;
+    margin-bottom: 28px;
+  }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--forest);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-detail h4 { font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+  .contact-detail p { color: var(--text); font-size: 0.95rem; line-height: 1.5; }
+  .contact-detail a { color: var(--text); text-decoration: none; }
+  .contact-detail a:hover { color: var(--moss); }
+  .contact-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 6px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+  }
+  .contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--forest);
+    margin-bottom: 28px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); font-weight: 500; }
+  .form-group input, .form-group textarea, .form-group select {
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    padding: 12px 14px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.3s;
+    background: var(--cream);
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--moss); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .btn-submit {
+    width: 100%;
+    background: var(--forest);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .btn-submit:hover { background: var(--moss); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 9999;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+  }
+  .whatsapp-bubble {
+    background: var(--white);
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    font-size: 0.85rem;
+    color: var(--text);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    max-width: 200px;
+    text-align: center;
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .whatsapp-float:hover .whatsapp-bubble { display: block; }
+  .whatsapp-btn {
+    width: 60px; height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse 2.5s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7); }
+  }
+  .whatsapp-btn:hover { transform: scale(1.1); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a2e25;
+    color: rgba(255,255,255,0.7);
+    padding: 60px 5% 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+    max-width: 1200px; margin: 0 auto 48px;
+  }
+  .footer-brand .logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .footer-brand p { line-height: 1.8; font-size: 0.88rem; }
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    max-width: 1200px; margin: 0 auto;
+    font-size: 0.82rem;
+  }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-grid, .location-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-img-stack { height: 380px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .g1,.g2,.g3,.g4,.g5 { grid-column: span 1; height: 200px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 60px 5%; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .booking-bar { flex-direction: column; align-items: stretch; }
+    .booking-field { min-width: unset; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">Vaibhav <span>Home Stay</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-book">Book Now</a></li>
+  </ul>
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-mountains">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,300 L0,200 L120,120 L280,180 L420,80 L560,160 L680,60 L820,140 L960,50 L1100,130 L1220,70 L1340,140 L1440,100 L1440,300 Z" fill="rgba(20,40,30,0.5)"/>
+      <path d="M0,300 L0,240 L100,200 L200,220 L320,170 L440,200 L560,165 L680,195 L780,160 L900,185 L1020,155 L1150,180 L1280,165 L1440,180 L1440,300 Z" fill="rgba(30,60,45,0.6)"/>
+      <path d="M0,300 L0,270 L200,250 L400,255 L600,245 L800,255 L1000,248 L1200,256 L1440,248 L1440,300 Z" fill="rgba(45,74,62,0.8)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Est. in the Heart of Kumaon</div>
+    <h1>Where the <em>Himalayas</em><br>Become Your Backyard</h1>
+    <p class="hero-sub">A peaceful mountain retreat in the lap of Uttarakhand</p>
+    <div class="hero-location">Bajwadpul, Saraikhet · Almora · Uttarakhand</div>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Book Your Stay</a>
+      <a href="#rooms" class="btn-outline">Explore Rooms</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span></span></div>
+</section>
+
+<!-- ── BOOKING BAR ── -->
+<div class="booking-bar">
+  <div class="booking-field">
+    <label>Check-in</label>
+    <input type="date" id="checkin">
+  </div>
+  <div class="booking-field">
+    <label>Check-out</label>
+    <input type="date" id="checkout">
+  </div>
+  <div class="booking-field">
+    <label>Guests</label>
+    <select>
+      <option>1 Guest</option>
+      <option>2 Guests</option>
+      <option selected>2 Adults</option>
+      <option>3 Guests</option>
+      <option>4 Guests</option>
+      <option>4+ Guests</option>
+    </select>
+  </div>
+  <div class="booking-field">
+    <label>Room Type</label>
+    <select>
+      <option>Any Room</option>
+      <option>Deluxe Room</option>
+      <option>Family Room</option>
+      <option>Valley View Suite</option>
+    </select>
+  </div>
+  <button class="btn-check" onclick="window.open('https://wa.me/919876543210?text=I%20would%20like%20to%20book%20a%20room%20at%20Vaibhav%20Home%20Stay', '_blank')">Check Availability</button>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-stack">
+      <div class="about-img-main">
+        <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/BAN-01.jpg" alt="Vaibhav Homestay mountain view">
+      </div>
+      <div class="about-img-accent">
+        <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/st-02-1024x440.jpg" alt="Homestay interior">
+      </div>
+      <div class="about-badge">
+        <span class="num">4.8★</span>
+        <span class="text">Guest Rating</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Your Home in the <em>Mountains</em></h2>
+      <p class="section-desc">Nestled in the pristine village of Bajwadpul near Saraikhet, Almora, Vaibhav Home Stay offers an authentic Kumaoni hospitality experience surrounded by the majestic Himalayan ranges.</p>
+      <p class="section-desc" style="margin-top:16px;">The climate here ranges from 1°C to 27°C, with occasional snowfall in peak winters. We are approximately 90 km from Jim Corbett National Park — about 3 hours by road — making us the perfect base for wildlife enthusiasts and nature lovers alike.</p>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="num">90km</div>
+          <div class="label">From Jim Corbett Park</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">1°–27°</div>
+          <div class="label">Year-round temperature</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">6+</div>
+          <div class="label">Comfortable Rooms</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">UK-263661</div>
+          <div class="label">Almora, Uttarakhand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROOMS ── -->
+<section class="rooms" id="rooms">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Accommodation</div>
+    <h2 class="section-title">Choose Your <em>Perfect Room</em></h2>
+    <p class="section-desc">All rooms are clean, comfortable, and thoughtfully furnished to make you feel at home in the hills.</p>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <div class="room-img">
+        <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/st-03-1024x440.jpg" alt="Standard Room">
+        <div class="room-tag">Popular</div>
+      </div>
+      <div class="room-body">
+        <h3>Standard Room</h3>
+        <p>Cosy and well-maintained with all the essentials for a comfortable mountain retreat. Perfect for solo travellers or couples.</p>
+        <div class="room-amenities">
+          <span class="amenity-chip">🛏 Double Bed</span>
+          <span class="amenity-chip">🚿 Attached Bath</span>
+          <span class="amenity-chip">📶 Free Wi-Fi</span>
+          <span class="amenity-chip">🌿 Garden View</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="amount">₹1,200</span>
+            <span class="per"> / night</span>
+          </div>
+          <a href="https://wa.me/919876543210?text=I%20would%20like%20to%20book%20a%20Standard%20Room" target="_blank" class="btn-book-room">Book via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <div class="room-img">
+        <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/st-03-1024x440.jpg" alt="Deluxe Room">
+        <div class="room-tag">Best Value</div>
+      </div>
+      <div class="room-body">
+        <h3>Deluxe Room</h3>
+        <p>Spacious room with a private balcony offering stunning views of the surrounding Himalayan hills and lush valley.</p>
+        <div class="room-amenities">
+          <span class="amenity-chip">🛏 King Bed</span>
+          <span class="amenity-chip">🚿 Attached Bath</span>
+          <span class="amenity-chip">📶 Free Wi-Fi</span>
+          <span class="amenity-chip">🏔 Mountain View</span>
+          <span class="amenity-chip">🌅 Balcony</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="amount">₹1,800</span>
+            <span class="per"> / night</span>
+          </div>
+          <a href="https://wa.me/919876543210?text=I%20would%20like%20to%20book%20a%20Deluxe%20Room" target="_blank" class="btn-book-room">Book via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <div class="room-img">
+        <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/st-02-1024x440.jpg" alt="Family Room">
+        <div class="room-tag">Family Pick</div>
+      </div>
+      <div class="room-body">
+        <h3>Family Room</h3>
+        <p>A large room ideal for families, with enough space for up to 4 guests. Includes homemade breakfast and bonfire on request.</p>
+        <div class="room-amenities">
+          <span class="amenity-chip">🛏 2 Double Beds</span>
+          <span class="amenity-chip">🚿 Attached Bath</span>
+          <span class="amenity-chip">📶 Free Wi-Fi</span>
+          <span class="amenity-chip">🍳 Breakfast Opt.</span>
+          <span class="amenity-chip">🔥 Bonfire</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="amount">₹2,800</span>
+            <span class="per"> / night</span>
+          </div>
+          <a href="https://wa.me/919876543210?text=I%20would%20like%20to%20book%20a%20Family%20Room" target="_blank" class="btn-book-room">Book via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AMENITIES ── -->
+<section class="amenities" id="amenities">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">All the <em>Comforts</em> You Need</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.65);">We've thought of everything so you can focus on the mountains.</p>
+  </div>
+  <div class="amenities-grid">
+    <div class="amenity-card"><div class="amenity-icon">📶</div><h4>Free Wi-Fi</h4><p>High-speed internet throughout</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🅿️</div><h4>Free Parking</h4><p>Secure on-site parking</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🍳</div><h4>Home-cooked Meals</h4><p>Fresh Kumaoni & Indian cuisine</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🔥</div><h4>Bonfire</h4><p>Cosy evening bonfires on request</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🌿</div><h4>Garden</h4><p>Lush green garden & terrace</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🚿</div><h4>Hot Water</h4><p>24-hour geyser in all rooms</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🏔</div><h4>Valley Views</h4><p>Stunning Himalayan panoramas</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🐦</div><h4>Bird Watching</h4><p>Abundant Himalayan birdlife</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🥾</div><h4>Trekking Help</h4><p>Local trail guidance & tours</p></div>
+    <div class="amenity-card"><div class="amenity-icon">👨‍👩‍👧</div><h4>Family Friendly</h4><p>Children of all ages welcome</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🧺</div><h4>Laundry</h4><p>Laundry service available</p></div>
+    <div class="amenity-card"><div class="amenity-icon">🐾</div><h4>Pet Friendly</h4><p>Pets welcome on request</p></div>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section class="gallery" id="gallery">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Photo Gallery</div>
+    <h2 class="section-title">A Glimpse of <em>Vaibhav</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item g1">
+      <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/maa-kalinka-mandir.jpg" alt="maa-kalinka-mandir">
+    </div>
+    <div class="gallery-item g2">
+      <img src="https://images.pexels.com/photos/36598033/pexels-photo-36598033.jpeg" alt="bindeshwar mahadev mandir">
+    </div>
+    <div class="gallery-item g3">
+      <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/Kullanteshwar-Mahadev-01-1024x440.jpg" alt="Kullanteshwar-Mahadev">
+    </div>
+    <div class="gallery-item g4">
+      <img src="https://www.vaibhavhomestay.com/wp-content/uploads/2024/04/Juniagarhi-01-1024x440.jpg" alt="Juniagarhi">
+    </div>
+    <div class="gallery-item g5">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&q=80" alt="Valley view">
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCATION ── -->
+<section class="location" id="location">
+  <div class="location-grid">
+    <div>
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title" style="font-size:1.9rem;">Getting Here is<br>Part of the <em>Adventure</em></h2>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14005.8!2d79.55!3d29.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a09b5b5b5b5b5b%3A0x0!2sSaraikhet%2C+Almora%2C+Uttarakhand!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="location-info">
+      <h3>Bajwadpul, Saraikhet, Almora</h3>
+      <p>📍 Bajwadpul, Saraikhet, Ram Nagar Road, Almora, Uttarakhand – 263661</p>
+      <p>Set in the beautiful Kumaon region of Uttarakhand, our homestay is surrounded by dense pine and oak forests, with panoramic Himalayan views and clean mountain air.</p>
+      <ul class="distance-list">
+        <li><span>✈ Pantnagar Airport</span><span>~120 km</span></li>
+        <li><span>🚂 Kathgodam Railway Station</span><span>~90 km</span></li>
+        <li><span>🐯 Jim Corbett National Park</span><span>~90 km</span></li>
+        <li><span>🏔 Almora Town</span><span>~30 km</span></li>
+        <li><span>🌊 Saraikhet Village</span><span>~2 km</span></li>
+        <li><span>🚌 Ramnagar</span><span>~60 km</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials">
+  <div style="max-width:1200px;margin:0 auto 0;">
+    <div class="section-label">Guest Stories</div>
+    <h2 class="section-title">What Our <em>Guests</em> Say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">Absolutely incredible stay. The views are breathtaking and the hosts are so warm and welcoming. The home-cooked food was delicious — proper Kumaoni flavours. Will definitely return!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-name">Rahul Sharma</div>
+          <div class="testi-date">December 2024 · Delhi</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">A hidden gem in the Kumaon hills! Peaceful, clean, and totally off the beaten path. We woke up to misty mountain views every morning. Perfect escape from the city chaos.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">Priya Negi</div>
+          <div class="testi-date">October 2024 · Mumbai</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★☆</div>
+      <p class="testi-text">Fantastic family holiday. The kids loved the bonfire and the garden. Room was clean, food was great, and the location near Corbett made it easy for safaris too. Highly recommend.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Anil Kapoor</div>
+          <div class="testi-date">November 2024 · Lucknow</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h3>Ready to <em style="font-style:italic;color:var(--moss)">Visit Us?</em></h3>
+      <p class="section-desc" style="margin-bottom:32px;">Reach out to check availability, get directions, or ask anything about your stay.</p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p>Bajwadpul, Saraikhet, Ram Nagar Road<br>Almora, Uttarakhand – 263661</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Phone / WhatsApp</h4>
+          <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="mailto:info@vaibhavhomestay.com">info@vaibhavhomestay.com</a></p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Check-in / Check-out</h4>
+          <p>Check-in: 12:00 PM onwards<br>Check-out: 11:00 AM</p>
+        </div>
+      </div>
+
+      <div style="margin-top:28px;">
+        <a href="https://wa.me/919876543210?text=Hi%2C%20I%20would%20like%20to%20book%20a%20stay%20at%20Vaibhav%20Home%20Stay" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;text-decoration:none;padding:14px 24px;border-radius:4px;font-weight:600;font-size:0.95rem;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send an Enquiry</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Check-in Date</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Check-out Date</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Number of Guests</label>
+        <select>
+          <option>1 Guest</option>
+          <option>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4 Guests</option>
+          <option>5+ Guests (Family)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message / Special Requests</label>
+        <textarea placeholder="Any special requirements, dietary needs, or questions..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="sendWhatsApp()">Send Enquiry via WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">Vaibhav Home Stay</span>
+      <p>A warm Kumaoni welcome in the heart of the Himalayas. Bajwadpul, Saraikhet, Almora, Uttarakhand – 263661</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#rooms">Our Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Nearby</h4>
+      <ul>
+        <li><a href="#">Jim Corbett Park</a></li>
+        <li><a href="#">Almora Town</a></li>
+        <li><a href="#">Binsar Wildlife</a></li>
+        <li><a href="#">Kausani</a></li>
+        <li><a href="#">Ranikhet</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
+        <li><a href="https://wa.me/919876543210" target="_blank">💬 WhatsApp Us</a></li>
+        <li><a href="mailto:info@vaibhavhomestay.com">✉️ Email Us</a></li>
+        <li><a href="#">📍 Get Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Vaibhav Home Stay, Almora. All rights reserved.</p>
+    <p>Designed with ❤️ for the mountains</p>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<div class="whatsapp-float">
+  <div class="whatsapp-bubble">💬 Book your stay instantly on WhatsApp!</div>
+  <a href="https://wa.me/919876543210?text=Hi!%20I%20would%20like%20to%20enquire%20about%20a%20stay%20at%20Vaibhav%20Home%20Stay%2C%20Almora." target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+  // Set min dates for date inputs
+  const today = new Date().toISOString().split('T')[0];
+  document.querySelectorAll('input[type="date"]').forEach(el => {
+    el.setAttribute('min', today);
+    if (el.id === 'checkin') el.value = today;
+  });
+
+  // WhatsApp form
+  function sendWhatsApp() {
+    const name = document.querySelector('.contact-form input[type="text"]').value || 'Guest';
+    const phone = document.querySelector('.contact-form input[type="tel"]').value || '';
+    const msg = `Hi! I'm ${name} and would like to enquire about a stay at Vaibhav Home Stay, Almora. Phone: ${phone}`;
+    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '12px 5%';
+    } else {
+      nav.style.padding = '18px 5%';
+    }
+  });
+</script>
+
+</body>
+</html>
